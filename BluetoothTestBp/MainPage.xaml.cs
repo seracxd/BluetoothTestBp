@@ -81,8 +81,15 @@ namespace BluetoothTestBp
                 request.Respond();
             };
 
+            GattServiceProviderAdvertisingParameters advParameters = new GattServiceProviderAdvertisingParameters
+            {
+                IsDiscoverable = true,
+                IsConnectable = true
+            };
+
+
             // Spuštění služby, aby byla dostupná BLE klientům
-            serviceProvider.StartAdvertising();
+            serviceProvider.StartAdvertising(advParameters);
             Console.WriteLine("GATT server started and advertising!");
         }
     }
